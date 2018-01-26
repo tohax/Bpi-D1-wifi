@@ -17,9 +17,10 @@ modprobe 8188eu
 
 echo "5120" > /proc/sys/vm/min_free_kbytes
 
-#if [ -f /mnt/setup.txt ]; then
-#	sed -i 's/\r$//g' /mnt/setup.txt
-#	/etc/init.d/setup.sh
-#else
-#	/etc/init.d/on.sh &
-#fi
+if [ -f /mnt/param ]; then
+	sed -i 's/\r$//g' /mnt/param
+	cp -f /mnt/param /etc/param
+	/etc/init.d/setup.sh
+else
+	/etc/init.d/on.sh &
+fi

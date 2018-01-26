@@ -60,8 +60,8 @@ clean_kernel()
 #    restore kernel/lib/libakaec.a and kernel/lib/libfha.a
 #   git checkout lib
 
-    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtlwifi
-    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel clean
+#    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtlwifi
+#    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel clean
 }
 
 config_busybox()
@@ -168,7 +168,7 @@ build_all()
 
 clean_all()
 {
-#    clean_tools
+    clean_tools
     clean_kernel
     clean_busybox
     clean_rootfs

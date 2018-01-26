@@ -1,8 +1,8 @@
 #!/bin/sh
-IP=10.10.10.100
-GW=10.10.10.2
-AP=Avtobus
-PASS=dietpi
+IP=$(cat /etc/param | grep IP= | cut -d "=" -f 2)
+GW=$(cat /etc/param | grep GW= | cut -d "=" -f 2)
+AP=$(cat /etc/param | grep AP= | cut -d "=" -f 2)
+PASS=$(cat /etc/param | grep PASS= | cut -d "=" -f 2)
 
 SSID=\"$AP\"
 PSK=\"$PASS\"
