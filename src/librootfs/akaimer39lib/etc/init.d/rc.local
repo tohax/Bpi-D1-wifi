@@ -6,7 +6,9 @@ hwclock --hctosys
 
 ifconfig lo up
 
-#modprobe 8192cu
+/usr/bin/telnetd
+
+modprobe rtl8192cu
 modprobe 8188eu
 
 # Cron

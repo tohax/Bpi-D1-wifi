@@ -1,6 +1,6 @@
-IP=192.168.0.199
-Server=192.168.0.97
-GW=192.168.0.1
-AP=Dir-network
-PASS=dy9z-16ui-epjq
+IP=192.168.1.200
+Server=192.168.1.109
+GW=192.168.1.1
+AP=TP
+PASS=acurarsx
 HOST=007

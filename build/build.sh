@@ -46,10 +46,10 @@ build_kernel()
     $MAKE O=$DEV_ROOT/output/kernel LOCALVERSION= -j$NCPU modules
     $MAKE O=$DEV_ROOT/output/kernel LOCALVERSION= -j$NCPU modules_prepare
 
-#    cd /root/rtl8188eu
+#    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtl8192cu
 #    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel modules
 #    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel strip
-#    $CP 8188eu.ko $DEV_ROOT/src/librootfs/akaimer39lib/lib/modules/3.4.113
+#    $CP rtl8192cu.ko $DEV_ROOT/src/librootfs/akaimer39lib/lib/modules/3.4.113
 }
 
 clean_kernel()
@@ -60,7 +60,7 @@ clean_kernel()
 #    restore kernel/lib/libakaec.a and kernel/lib/libfha.a
 #   git checkout lib
 
-#    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtlwifi
+#    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtl8192cu
 #    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel clean
 }
 
