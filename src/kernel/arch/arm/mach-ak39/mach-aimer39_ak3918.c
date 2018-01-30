@@ -490,7 +490,7 @@ static struct ak_led_data leds[] = {
 		}
 	},
 {
-        .name           = "reset",
+        .name           = "led_g",
         .def_trigger    = "default-on",
         .gpio           = {
                 .pin            = AK_GPIO_29,
@@ -501,7 +501,37 @@ static struct ak_led_data leds[] = {
                 .int_pol        = -1,
                 }
         },
+
+
+{
+        .name           = "led_l",
+        .def_trigger    = "none",
+        .gpio           = {
+                .pin            = AK_GPIO_56,
+                .pulldown       = -1,
+                .pullup         = -1, //AK_PULLUP_DISABLE,
+                .value          = AK_GPIO_OUT_HIGH,
+                .dir            = AK_GPIO_DIR_OUTPUT,
+                .int_pol        = -1,
+                }
+        },
+
+{
+        .name           = "led_r",
+        .def_trigger    = "none",
+        .gpio           = {
+                .pin            = AK_GPIO_37,
+                .pulldown       = -1,
+                .pullup         = -1, //AK_PULLUP_DISABLE,
+                .value          = AK_GPIO_OUT_HIGH,
+                .dir            = AK_GPIO_DIR_OUTPUT,
+                .int_pol        = -1,
+                }
+        },
+
 };
+
+
 
 static struct ak_led_pdata led_pdata = {
 	.leds		= leds,
@@ -678,8 +708,8 @@ static struct ak_bat_mach_info ak39_bat_info = {
 	&akfha_char_device,
 	&ak39_uart0_device,
 	&ak39_uart1_device,
-	&ak39_motor0_device,
-	&ak39_motor1_device,
+	//&ak39_motor0_device,
+	//&ak39_motor1_device,
 	&ak39_spi1_device,
 	&ak39_mmc_device,
 	&ak39_i2c_device,
@@ -758,7 +788,7 @@ static void __init ak3918_init_machine(void)
 }
 
 
-MACHINE_START(AK39XX, "BananaPi TohaX Edition")
+MACHINE_START(AK39XX, "Bpi TohaX Edition")
 /* Maintainer: */
 	.atag_offset = 0x100,
 	.fixup = NULL,
@@ -771,4 +801,3 @@ MACHINE_START(AK39XX, "BananaPi TohaX Edition")
     .restart = ak39_restart,
 
 MACHINE_END
-
