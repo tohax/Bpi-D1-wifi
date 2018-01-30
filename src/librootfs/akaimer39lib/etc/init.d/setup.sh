@@ -12,8 +12,8 @@ chmod 700 /etc/dropbear
 dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
 
 #Rsync
-echo dietpi > /etc/.rsync
-chmod 600 /etc/.rsync
+#echo dietpi > /etc/.rsync
+#chmod 600 /etc/.rsync
 echo 1 > /sys/class/leds/r_led/brightness
 while [ ! -d /sys/class/net/wlan0 ]
 do
