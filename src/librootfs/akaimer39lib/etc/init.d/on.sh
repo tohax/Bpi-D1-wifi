@@ -18,9 +18,9 @@ echo heartbeat > /sys/class/leds/g_led/trigger
 time=`date +%Y%m%d`
 echo `date` > /etc/_ON_`hostname`.txt
 find /mnt/ -name "*index" -exec rm {} \;
-rsync -av --remove-source-files --password-file=/etc/.rsync /etc/_ON_`hostname`.txt root@$Server::video/ya.disk/Avtobus/$time/
-rsync -av --remove-source-files --log-file=/etc/`hostname`.txt --password-file=/etc/.rsync /mnt/ root@$Server::video/oneday/
-rsync -av --remove-source-files --password-file=/etc/.rsync /etc/`hostname`.txt root@$Server::video/ya.disk/Avtobus/$time/
+rsync -avz --remove-source-files --password-file=/etc/.rsync /etc/_ON_`hostname`.txt root@$Server::video/ya.disk/Avtobus/$time/
+rsync -avW --size-only --progress --remove-source-files --log-file=/etc/`hostname`.txt --password-file=/etc/.rsync /mnt/ root@$Server::video/oneday/
+rsync -avz --remove-source-files --password-file=/etc/.rsync /etc/`hostname`.txt root@$Server::video/ya.disk/Avtobus/$time/
 find /mnt/[1-9]* -type d -delete 2>/dev/null
 echo none > /sys/class/leds/g_led/trigger
 echo none > /sys/class/leds/r_led/trigger

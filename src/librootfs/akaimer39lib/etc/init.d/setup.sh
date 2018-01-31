@@ -11,9 +11,6 @@ mkdir -p /etc/dropbear
 chmod 700 /etc/dropbear
 dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
 
-#Rsync
-#echo dietpi > /etc/.rsync
-#chmod 600 /etc/.rsync
 echo 1 > /sys/class/leds/r_led/brightness
 while [ ! -d /sys/class/net/wlan0 ]
 do
@@ -26,8 +23,9 @@ echo 0 > /sys/class/leds/r_led/brightness
 if pgrep wpa_supplicant; then kill `pgrep wpa_supplicant`; fi
 sleep 2
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf
+sleep 1
 /etc/init.d/wifi.sh
-sleep 3
+sleep 1
 echo "Updating time"
 rdate -s $Server
 hwclock --systohc

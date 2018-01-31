@@ -8,7 +8,7 @@ ifconfig lo up
 
 /usr/bin/telnetd
 
-modprobe 8192cu
+#modprobe 8192cu
 modprobe 8188eu
 
 # Cron
