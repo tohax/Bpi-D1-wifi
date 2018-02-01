@@ -4,6 +4,7 @@ sed -i '/wlan0/d' /etc/mdev.conf
 Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 echo `cat /etc/param | grep HOST= | cut -d "=" -f 2` > /etc/sysconfig/HOSTNAME
 hostname -F /etc/sysconfig/HOSTNAME
+chmod 600 /etc/.rsync
 
 # Dropbear
 if [ -d /etc/dropbear ]; then rm -rf /etc/dropbear; fi

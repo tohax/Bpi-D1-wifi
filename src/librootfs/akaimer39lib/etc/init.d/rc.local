@@ -7,8 +7,6 @@ mount -t auto $(ls /dev/mmcblk0p*) /mnt
 echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-0/new_device
 hwclock --hctosys
 
-ifconfig lo up
-
 /usr/bin/telnetd
 
 #modprobe 8192cu
@@ -27,5 +25,6 @@ if [ -f /mnt/param ]; then
 	cp -f /mnt/param /etc/param
 	/etc/init.d/setup.sh &
 else
-	/etc/init.d/on.sh &
+	dropbear -B -R
+	if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; fi
 fi
